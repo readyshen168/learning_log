@@ -24,4 +24,9 @@ class Entry(models.Model):
 
     def __str__(self):
         """返回一个表示条目的简单字符串"""
-        return f"{self.text[:100]}..."
+        # 如果条目的字符长度大于100，则输出省略号
+        if len(self.text) > 100:
+            return f"{self.text[:100]}..."
+        else:
+            return self.text
+
