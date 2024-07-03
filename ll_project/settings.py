@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # 我的应用程序
+    # 视图文件将从以下路径去寻找templates文件夹下的html文件（参照learning_logs下的view.py中的index()方法）
     'learning_logs',
     "django.contrib.admin",
     "django.contrib.auth",
