@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from learning_logs.models import Topic
-from .forms import TopicForm
+from .forms import TopicForm, EntryForm
 
 
 # Create your views here.
@@ -15,14 +15,22 @@ def topics(request):
     return render(request, 'learning_logs/topics.html', context)
 
 
-def topic(request, topic_id):
+def entries(request, topic_id):
     # 根据topic_id找到相关的topic
     topic = Topic.objects.get(id=topic_id)
+    if request.method != 'POST':
+        form = EntryForm()
+    else:
+        form = EntryForm(data=request.POST)
+        if form.is_valid():
+            new_entry = form.save(commit=False)
+            new_entry.topic = topic
+            new_entry.save()
     # 找到该topic下的entry集合
     entries = topic.entry_set.order_by('-date_added')
     # context里包含topic以及entry集合
-    context = {'topic': topic, 'entries': entries}
-    return render(request, 'learning_logs/topic.html', context)
+    context = {'topic': topic, 'entries': entries, 'form': form}
+    return render(request, 'learning_logs/entries.html', context)
 
 
 def new_topic(request):

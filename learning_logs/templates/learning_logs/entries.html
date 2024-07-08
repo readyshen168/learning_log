@@ -5,6 +5,7 @@
     <title>topic's entries</title>
 </head>
 <body>
+<!--需要从views.entries()传过来的变量有：topic, entries, form-->
     {% extends 'learning_logs/base.html' %}
     {% block content %}
         <p>Topic: {{ topic }}</p>
@@ -19,6 +20,14 @@
                 <li>No entry has been added yet.</li>
             {% endfor %}
         </ul>
+
+        <!--新建entry的表单-->
+        <p>Add new entry:</p>
+        <form action="{% url 'learning_logs:entries' topic.id %}" method="post">
+            {% csrf_token %}
+            {{ form.as_div }}
+            <button name="submit">Add entry</button>
+        </form>
     {% endblock content %}
 
 </body>
