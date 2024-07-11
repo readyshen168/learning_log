@@ -21,6 +21,7 @@ def entries(request, topic_id):
     if request.method != 'POST':
         form = EntryForm()
     else:
+        # 增加新的Entry
         form = EntryForm(data=request.POST)
         if form.is_valid():
             new_entry = form.save(commit=False)
