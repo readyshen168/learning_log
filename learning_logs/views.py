@@ -48,8 +48,8 @@ def new_topic(request):
     return render(request, 'learning_logs/new_topic.html', context)
 
 
-def edit_entry(request, entry_id):
-    entry = Entry.objects.get(id=entry_id)
+def edit_entry(request, entry):
+    # entry = Entry.objects.get(id=entry_id)
     topic = entry.topic
     if request.method != 'POST':
         form = EntryForm(instance=entry)
