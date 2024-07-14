@@ -19,5 +19,6 @@ from django.urls import path, include
 urlpatterns = [
     path("admin/", admin.site.urls),
     # 此处的learning_logs是根目录下的
-    path('', include('learning_logs.urls'))
+    path('', include('learning_logs.urls')),
+    path('accounts/', include('accounts.urls'))
 ]

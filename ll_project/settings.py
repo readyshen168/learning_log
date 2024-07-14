@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     # 我的应用程序
     # 视图文件将从以下路径去寻找templates文件夹下的html文件（参照learning_logs下的view.py中的index()方法）
     'learning_logs',
+    'accounts',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -124,3 +125,6 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# 我的设置
+LOGIN_REDIRECT_URL = 'learning_logs:index'
