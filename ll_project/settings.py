@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     # 视图文件将从以下路径去寻找templates文件夹下的html文件（参照learning_logs下的view.py中的index()方法）
     'learning_logs',
     'accounts',
+    # 第三方应用程序
+    'django_bootstrap5',
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
