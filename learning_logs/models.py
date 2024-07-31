@@ -30,3 +30,5 @@ class Entry(models.Model):
         else:
             return self.text
 
+        # return self.text if len(self.text) <= 100 else f"{self.text[:100]}"
+
